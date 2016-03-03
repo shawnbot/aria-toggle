@@ -55,7 +55,7 @@ anything other than `false`), and whenever a toggle is opened the others will
 be closed automatically.
 
 
-### Hashchange helpers
+### Hashchange helper
 The browser bundle comes with a `hashchange` event listener that detects when
 `location.hash` matches the id of either a `<button is="aria-toggle">` or its
 associated content, then:
@@ -73,4 +73,21 @@ ARIAToggle.removeListeners();
 Be sure to do so _before_ the window's `load` event is called (e.g. in the
 `<head>` immediately after the `aria-toggle.js` is included).
 
+
+## Bundling
+The browser bundle in [dist/aria-toggle.js](dist/aria-toggle.js) includes the
+excellent and light-weight [document-register-element] polyfill. If you wish to
+bring your own polyfill for the `document.registerElement()` API, you can
+require this module directly:
+
+```js
+// assigning to window.ARIAToggle is optional
+window.ARIAToggle = require('aria-toggle');
+```
+
+Or roll your own version of [src/bundle.js](src/bundle.js) and name the
+constructors whatever you want, take or leave the [hashchange
+helper](#hashchange-helper), etc.
+
 [HTML custom element]: http://webcomponents.org/articles/introduction-to-custom-elements/
+[document-register-element]: https://github.com/WebReflection/document-register-element/
