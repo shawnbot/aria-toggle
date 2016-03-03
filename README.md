@@ -1,7 +1,7 @@
 # ARIA toggles
-This package contains [HTML custom element] definitions that turn ARIA-enabled
-buttons into dynamic toggles, and allow you to create accordion groupings with
-exclusive selections.
+This package contains [HTML custom element] definitions that turn
+[ARIA]-enabled buttons into dynamic toggles, and allow you to create accordion
+groupings with exclusive selections.
 
 ## Usage
 Grab [dist/aria-toggle.js](dist/aria-toggle.js) and include it in either the
@@ -16,15 +16,17 @@ with:
 ```
 
 ### `<button is="aria-toggle">`
-Every `<button is="aria-toggle">` will be imbued with the following super powers:
+Every `<button is="aria-toggle">` has _associate content_ defined by the id
+referenced in its [aria-controls] attribute, and is imbued with the following
+additional super powers:
 
 1. The DOM element will have an `expanded` property that indicates whether it's
    expanded and, correspondingly, whether its associated content is visible.
    The initial value of `expanded` is determined by the following rules:
 
-   * If the `<button>` has an `aria-expanded` attribute, then the initial value
-     is based on that attribute and the associated content is shown or hidden
-     based on that value.
+   * If the `<button>` has an [`aria-expanded`][aria-expanded] attribute, then
+     the initial value is based on that attribute and the associated content is
+     shown or hidden based on that value.
 
    * Otherwise, the initial value is `false` only if its associated content has
      `aria-hidden="true"`.
@@ -90,5 +92,8 @@ Or roll your own version of [src/bundle.js](src/bundle.js) and name the
 constructors whatever you want, take or leave the [hashchange
 helper](#hashchange-helper), etc.
 
+[ARIA]: https://www.w3.org/TR/wai-aria/
+[aria-controls]: https://www.w3.org/TR/wai-aria/states_and_properties#aria-controls
+[aria-expanded]: https://www.w3.org/TR/wai-aria/states_and_properties#aria-expanded
 [HTML custom element]: http://webcomponents.org/articles/introduction-to-custom-elements/
 [document-register-element]: https://github.com/WebReflection/document-register-element/
