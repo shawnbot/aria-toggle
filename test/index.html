@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="../dist/aria-toggle.js"></script>
+    <style>
+
+      @import url('../dist/aria-toggle.css');
+
+      body {
+        font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 2em;
+      }
+
+      h1 {
+        margin: 0 0 1rem 0;
+      }
+
+      [is=aria-toggle] {
+        background: #ffe;
+      }
+
+      [is=aria-toggle][aria-expanded=false] {
+        background: #ddd;
+      }
+
+      [aria-hidden=true] {
+        display: none;
+      }
+
+      section {
+        margin: 1em 0;
+        padding: .5em;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      aria-toggle-group > section {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+
+      aria-toggle-group > section:first-of-type {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+
+      aria-toggle-group > section:last-of-type {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+
+      aria-toggle-group > section + section {
+        border-top: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <h1>Toggles</h1>
+
+    <section id="section1">
+      <button is="aria-toggle" aria-controls="section1-content">Section 1 (open by default)</button>
+      <div id="section1-content">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section2">
+      <button is="aria-toggle" aria-controls="section2-content" aria-expanded="true">Section 2 (open with aria-expanded=true)</button>
+      <div id="section2-content">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section3">
+      <button is="aria-toggle" aria-controls="section3-content" aria-expanded="false">Section 3 (closed with aria-expanded=false)</button>
+      <div id="section3-content">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section4">
+      <button is="aria-toggle" aria-controls="section4-content">Section 4 (closed with content aria-hidden=true)</button>
+      <div id="section4-content" aria-hidden="true">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section5">
+      <button is="aria-toggle" aria-controls="section5-content">Section 5 (open with content aria-hidden=false)</button>
+      <div id="section5-content" aria-hidden="false">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section6">
+      <button is="aria-toggle" aria-controls="section6-content" data-prevent="close">Section 6 (prevents close)</button>
+      <div id="section6-content">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section7">
+      <button is="aria-toggle" aria-controls="section7-content" data-prevent="open" aria-expanded="false">Section 7 (prevents open)</button>
+      <div id="section7-content">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section8">
+      <button is="aria-toggle" aria-controls="section8-content">Section 8 (toggle via setAttribute())</button>
+      <p>
+        <button onclick="document.querySelector('[aria-controls=section8-content]').setAttribute('aria-expanded', false)">close</button> or
+        <button onclick="document.querySelector('[aria-controls=section8-content]').setAttribute('aria-expanded', true)">open</button> this section
+      </p>
+      <div id="section8-content">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section9">
+      <button is="aria-toggle" aria-controls="section9-content">Section 9 (toggle via methods)</button>
+      <p>
+        <button onclick="document.querySelector('[aria-controls=section9-content]').close()">close</button> or
+        <button onclick="document.querySelector('[aria-controls=section9-content]').open()">open</button> this section
+      </p>
+      <div id="section9-content">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <section id="section10">
+      <button is="aria-toggle" aria-controls="section10-content" disabled>Section 10 (disabled)</button>
+      <div id="section10-content">
+        <p>Blah blah blah.</p>
+      </div>
+    </section>
+
+    <aria-toggle-group exclusive="true">
+      <h1>Toggle Groups</h1>
+      <section id="group-section1">
+        <button is="aria-toggle" aria-controls="group-section1-content">Exclusive Section 1</button>
+        <div id="group-section1-content">
+          <p>Blah blah blah.</p>
+        </div>
+      </section>
+      <section id="group-section2">
+        <button is="aria-toggle" aria-controls="group-section2-content" aria-expanded="false">Exclusive Section 2</button>
+        <div id="group-section2-content">
+          <p>Blah blah blah.</p>
+        </div>
+      </section>
+      <section id="group-section3">
+        <button is="aria-toggle" aria-controls="group-section3-content" aria-expanded="false">Exclusive Section 3</button>
+        <div id="group-section3-content">
+          <p>Blah blah blah.</p>
+        </div>
+      </section>
+    </aria-toggle-group>
+
+    <script>
+      document.body.addEventListener('open', function(e) {
+        if (e.target.getAttribute('data-prevent') === 'open') {
+          e.preventDefault();
+        }
+      });
+
+      document.body.addEventListener('close', function(e) {
+        if (e.target.getAttribute('data-prevent') === 'close') {
+          e.preventDefault();
+        }
+      });
+    </script>
+
+  </body>
+</html>

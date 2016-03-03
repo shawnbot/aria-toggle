@@ -1,0 +1,26 @@
+[is=aria-toggle] {
+  border: none;
+  display: block;
+  font: inherit;
+  padding: .5em .75em;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+[is=aria-toggle][aria-expanded=false] {
+  /* collapsed styles go here */
+}
+
+[is=aria-toggle]::after {
+  content: "▲";
+  display: block;
+  position: absolute;
+  right: .75em;
+  top: .5em;
+}
+
+[is=aria-toggle][aria-expanded=false]::after {
+  content: "▼";
+}
