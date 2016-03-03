@@ -22,7 +22,6 @@
   "homepage": "https://github.com/shawnbot/aria-toggle#readme",
   "dependencies": {
     "custom-event": "^1.0.0",
-    "elbo": "^1.0.0",
-    "raf": "^3.2.0"
+    "elbo": "^1.0.0"
   }
 }

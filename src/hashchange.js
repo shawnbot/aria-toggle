@@ -3,8 +3,6 @@ var getToggle = function(el) {
   return document.querySelector(selector);
 };
 
-var requestAnimationFrame = require('raf');
-
 module.exports = function(e) {
   var id = location.hash.substr(1);
   if (id) {
