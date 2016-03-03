@@ -1,0 +1,28 @@
+{
+  "name": "aria-toggle",
+  "version": "1.0.0",
+  "description": "an <aria-toggle> custom element",
+  "main": "index.js",
+  "scripts": {
+    "test": "zuul -- test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawnbot/aria-toggle.git"
+  },
+  "keywords": [
+    "aria",
+    "html"
+  ],
+  "author": "Shawn Allen <shawn.allen@gsa.gov>",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/shawnbot/aria-toggle/issues"
+  },
+  "homepage": "https://github.com/shawnbot/aria-toggle#readme",
+  "dependencies": {
+    "custom-event": "^1.0.0",
+    "elbo": "^1.0.0",
+    "raf": "^3.2.0"
+  }
+}
