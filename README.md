@@ -75,7 +75,7 @@ Be sure to do so _before_ the window's `load` event is called (e.g. in the
 
 
 ## Bundling
-The browser bundle in [src/bundle.js](dist/bundle.js) includes the excellent
+The browser bundle in [src/bundle.js](src/bundle.js) includes the excellent
 and light-weight [document-register-element] polyfill. If you wish to bring
 your own polyfill for the `document.registerElement()` API, you can require
 the top-level module directly to get just the `<button is="aria-toggle>` custom
