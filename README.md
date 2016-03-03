@@ -37,10 +37,15 @@ additional super powers:
 1. Clicking (or pressing <kbd>space</kbd> or <kbd>enter</kbd> when focused)
    will toggle its `expanded` property.
 
+1. The DOM element will dispatch `open` and `close` events whenever its
+   `expanded` property changes.
+
 1. The `expanded` property and the `aria-expanded` attribute _reflect_ one
    another, so setting one will always change the other. This means that other
    components or frameworks can set the `aria-expanded` attribute rather than
-   having to know about a toggle's extra properties or methods.
+   having to know about a toggle's extra properties or methods, and that you
+   can style expanded buttons via CSS with `[is=aria-toggle]` (open),
+   `[is=aria-toggle][aria-expanded=false]` (closed).
 
 You can create new toggles dynamically with:
 
