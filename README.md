@@ -72,3 +72,5 @@ ARIAToggle.removeListeners();
 
 Be sure to do so _before_ the window's `load` event is called (e.g. in the
 `<head>` immediately after the `aria-toggle.js` is included).
+
+[HTML custom element]: http://webcomponents.org/articles/introduction-to-custom-elements/
